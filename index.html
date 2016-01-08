@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style>
+            html, body {
+   height: 100%;
+}
+</style>
+        <script src="jquery-1.11.3.min.js"></script>
+<script>
+    //https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
+    //http://www.html5canvastutorials.com/tutorials/html5-canvas-arcs/
+    $(function () {
+
+
+        var canvas = document.getElementById('myCanvas');
+        var context = canvas.getContext('2d');
+        context.translate(0.5, 0.5);
+
+        var x = canvas.width / 2;
+        var y = canvas.height / 2;
+        var radius = 30;
+        var startAngle = 1.1 * Math.PI;
+        var endAngle = 1.9 * Math.PI;
+        var counterClockwise = true;
+        // alert(x);
+        context.beginPath();
+        context.arc(x, 50, radius, startAngle, endAngle, false);
+        //    alert(endAngle);
+        context.lineTo(180, 210);
+        // x y radius start end clockwise
+        context.arc(x, 210 + 60, radius + 30, (1.667 * Math.PI), (1.355 * Math.PI), false);
+        // context.arc(150, 150, radius, startAngle, endAngle, counterClockwise);
+
+        context.lineWidth = 5;
+
+        // line color
+        context.strokeStyle = 'black';
+        context.lineJoin = 'round';
+
+        context.closePath();
+        context.stroke();
+    });
+</script>
+    </head>
+    <body>
+        <!-- Dont set height/width in css -->
+        <canvas id="myCanvas" height="800" width="300" style="border: 1px solid #000;"></canvas>
+     
+    </body>
+</html>
